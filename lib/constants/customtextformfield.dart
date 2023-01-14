@@ -16,7 +16,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 80.0, left: 10),
+      padding: const EdgeInsets.only(right: 18.0, left: 10),
       child: SizedBox(
         height: 45.0,
         child: TextFormField(
@@ -55,7 +55,7 @@ class CustomSearchTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 80.0, left: 10),
+      padding: const EdgeInsets.only(right: 18.0, left: 10.0),
       child: SizedBox(
         height: 45.0,
         child: TextFormField(
