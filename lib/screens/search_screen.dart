@@ -83,8 +83,8 @@ class _SearchScreenState extends State<SearchScreen> {
                           decoration: BoxDecoration(
                               border: Border.all(color: buttonColor),
                               borderRadius: BorderRadius.circular(30.0)),
-                          child: Text(
-                            search,
+                          child: const Text(
+                            "A",
                             style: const TextStyle(
                                 color: backgroundColor, fontSize: 40.0),
                           ))
@@ -121,91 +121,91 @@ class _SearchScreenState extends State<SearchScreen> {
                           color: sideBarColor.withOpacity(0.4),
                           thickness: 0.5,
                         ),
-                        const SizedBox(
-                          height: 15.0,
-                        ),
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(right: 18.0, left: 10.0),
-                          child: OutlinedButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(14.0),
-                                  side: const BorderSide(
-                                      width: 10.0, color: Colors.black),
-                                ),
-                              ),
-                              fixedSize: MaterialStateProperty.resolveWith(
-                                (states) => const Size(270.0, 40.0),
-                              ),
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith<Color>(
-                                (Set<MaterialState> states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return Colors.green;
-                                  }
-                                  return Colors
-                                      .transparent;
-                                },
-                              ),
-                            ),
-                            child: const Text(
-                              "OPEN DOOR EA1",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 17.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15.0,
-                        ),
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(right: 18.0, left: 10.0),
-                          child: OutlinedButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(14.0),
-                                  side: const BorderSide(
-                                      width: 10.0, color: Colors.black),
-                                ),
-                              ),
-                              fixedSize: MaterialStateProperty.resolveWith(
-                                (states) => const Size(270.0, 40.0),
-                              ),
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith<Color>(
-                                (Set<MaterialState> states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return Colors.green;
-                                  }
-                                  return Colors
-                                      .transparent;
-                                },
-                              ),
-                            ),
-                            child: const Text(
-                              "OPEN DOOR EA2",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 17.0,
-                              ),
-                            ),
-                          ),
-                        ),
+                        // const SizedBox(
+                        //   height: 15.0,
+                        // ),
+                        // Padding(
+                        //   padding:
+                        //       const EdgeInsets.only(right: 18.0, left: 10.0),
+                        //   child: OutlinedButton(
+                        //     onPressed: () {},
+                        //     style: ButtonStyle(
+                        //       shape: MaterialStateProperty.all(
+                        //         RoundedRectangleBorder(
+                        //           borderRadius: BorderRadius.circular(14.0),
+                        //           side: const BorderSide(
+                        //               width: 10.0, color: Colors.black),
+                        //         ),
+                        //       ),
+                        //       fixedSize: MaterialStateProperty.resolveWith(
+                        //         (states) => const Size(270.0, 40.0),
+                        //       ),
+                        //       backgroundColor:
+                        //           MaterialStateProperty.resolveWith<Color>(
+                        //         (Set<MaterialState> states) {
+                        //           if (states.contains(MaterialState.pressed)) {
+                        //             return Colors.green;
+                        //           }
+                        //           return Colors
+                        //               .transparent;
+                        //         },
+                        //       ),
+                        //     ),
+                        //     child: const Text(
+                        //       "OPEN DOOR EA1",
+                        //       style: TextStyle(
+                        //         color: Colors.black,
+                        //         fontSize: 17.0,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        // const SizedBox(
+                        //   height: 15.0,
+                        // ),
+                        // Padding(
+                        //   padding:
+                        //       const EdgeInsets.only(right: 18.0, left: 10.0),
+                        //   child: OutlinedButton(
+                        //     onPressed: () {},
+                        //     style: ButtonStyle(
+                        //       shape: MaterialStateProperty.all(
+                        //         RoundedRectangleBorder(
+                        //           borderRadius: BorderRadius.circular(14.0),
+                        //           side: const BorderSide(
+                        //               width: 10.0, color: Colors.black),
+                        //         ),
+                        //       ),
+                        //       fixedSize: MaterialStateProperty.resolveWith(
+                        //         (states) => const Size(270.0, 40.0),
+                        //       ),
+                        //       backgroundColor:
+                        //           MaterialStateProperty.resolveWith<Color>(
+                        //         (Set<MaterialState> states) {
+                        //           if (states.contains(MaterialState.pressed)) {
+                        //             return Colors.green;
+                        //           }
+                        //           return Colors
+                        //               .transparent;
+                        //         },
+                        //       ),
+                        //     ),
+                        //     child: const Text(
+                        //       "OPEN DOOR EA2",
+                        //       style: TextStyle(
+                        //         color: Colors.black,
+                        //         fontSize: 17.0,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         const SizedBox(
                           height: 15.0,
                         ),
                         Container(
                           height: 300,
                           child: Padding(
-                            padding: const EdgeInsets.all(25),
+                            padding: const EdgeInsets.all(5),
                             child: Column(
                               children: [
                                 // Display the data loaded from sample.json
@@ -218,22 +218,39 @@ class _SearchScreenState extends State<SearchScreen> {
                                                     ['name']
                                                 .toString();
                                             if (searchController.text.isEmpty) {
-                                              return Card(
-                                                margin:
-                                                    const EdgeInsets.all(10),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30.0),
-                                                ),
-                                                color: buttonColor,
-                                                child: ListTile(
-                                                  title: Text(
-                                                    "Nom: ${_items[index]["name"]}",
+                                              return Padding(
+                                                padding:
+                                                const EdgeInsets.only(right: 18.0, left: 10.0),
+                                                child: OutlinedButton(
+                                                  onPressed: () {},
+                                                  style: ButtonStyle(
+                                                    shape: MaterialStateProperty.all(
+                                                      RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(14.0),
+                                                        side: const BorderSide(
+                                                            width: 10.0, color: Colors.black),
+                                                      ),
+                                                    ),
+                                                    fixedSize: MaterialStateProperty.resolveWith(
+                                                          (states) => const Size(270.0, 40.0),
+                                                    ),
+                                                    backgroundColor:
+                                                    MaterialStateProperty.resolveWith<Color>(
+                                                          (Set<MaterialState> states) {
+                                                        if (states.contains(MaterialState.pressed)) {
+                                                          return Colors.green;
+                                                        }
+                                                        return Colors
+                                                            .transparent;
+                                                      },
+                                                    ),
+                                                  ),
+                                                  child:  Text(
+                                                    "OPEN DOOR ${_items[index]["name"]}",
                                                     style: const TextStyle(
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.w900),
+                                                      color: Colors.black,
+                                                      fontSize: 17.0,
+                                                    ),
                                                   ),
                                                 ),
                                               );
@@ -241,22 +258,39 @@ class _SearchScreenState extends State<SearchScreen> {
                                                 .toLowerCase()
                                                 .contains(searchController.text
                                                     .toLowerCase())) {
-                                              return Card(
-                                                margin:
-                                                    const EdgeInsets.all(10),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30.0),
-                                                ),
-                                                color: buttonColor,
-                                                child: ListTile(
-                                                  title: Text(
-                                                    "Nom: ${_items[index]["name"]}",
+                                              return Padding(
+                                                padding:
+                                                const EdgeInsets.only(right: 18.0, left: 10.0),
+                                                child: OutlinedButton(
+                                                  onPressed: () {},
+                                                  style: ButtonStyle(
+                                                    shape: MaterialStateProperty.all(
+                                                      RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(14.0),
+                                                        side: const BorderSide(
+                                                            width: 10.0, color: Colors.black),
+                                                      ),
+                                                    ),
+                                                    fixedSize: MaterialStateProperty.resolveWith(
+                                                          (states) => const Size(270.0, 40.0),
+                                                    ),
+                                                    backgroundColor:
+                                                    MaterialStateProperty.resolveWith<Color>(
+                                                          (Set<MaterialState> states) {
+                                                        if (states.contains(MaterialState.pressed)) {
+                                                          return Colors.green;
+                                                        }
+                                                        return Colors
+                                                            .transparent;
+                                                      },
+                                                    ),
+                                                  ),
+                                                  child: Text(
+                                                    "OPEN DOOR ${_items[index]["name"]}",
                                                     style: const TextStyle(
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.w900),
+                                                      color: Colors.black,
+                                                      fontSize: 17.0,
+                                                    ),
                                                   ),
                                                 ),
                                               );
