@@ -43,12 +43,14 @@ class CustomTextField extends StatelessWidget {
 // TODO SearchTextFormField
 class CustomSearchTextFormField extends StatelessWidget {
   String? text;
+  final String? Function(String?)? onChanged;
   final TextEditingController myController;
   IconData? icon;
   CustomSearchTextFormField(
       {Key? key,
       required this.text,
       required this.icon,
+        required this.onChanged,
       required this.myController})
       : super(key: key);
 
@@ -60,6 +62,7 @@ class CustomSearchTextFormField extends StatelessWidget {
         height: 45.0,
         child: TextFormField(
           controller: myController,
+          onChanged: onChanged,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: InputDecoration(
               hintText: text,

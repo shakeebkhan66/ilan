@@ -17,23 +17,15 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+
   // TODO TextEditingControllers
   TextEditingController searchController = TextEditingController();
+  String search = "";
 
-  // TODO Parse Json from Local Json File
-  // Future<List<ButtonModel>> getData() async{
-  //   var data = await DefaultAssetBundle.of(context).loadString("assets/buttonjson/file.json");
-  //   print(data.runtimeType);
-  //   List mapData = jsonDecode(data);
-  //   print(mapData.runtimeType);
-  //   List<ButtonModel> buttons = mapData.map((e) => ButtonModel.fromJson(e)).toList();
-  //   print("Button $buttons");
-  //   return buttons;
-  // }
 
   List _items = [];
 
-  // Fetch content from the json file
+  // TODO Fetch content from the json file
   Future<void> readJson() async {
     final String response =
         await rootBundle.loadString('assets/buttonjson/file.json');
@@ -45,7 +37,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   void initState() {
-    // getData();
     readJson();
     super.initState();
   }
@@ -92,9 +83,9 @@ class _SearchScreenState extends State<SearchScreen> {
                           decoration: BoxDecoration(
                               border: Border.all(color: buttonColor),
                               borderRadius: BorderRadius.circular(30.0)),
-                          child: const Text(
-                            "A",
-                            style: TextStyle(
+                          child: Text(
+                            search,
+                            style: const TextStyle(
                                 color: backgroundColor, fontSize: 40.0),
                           ))
                     ],
@@ -117,6 +108,11 @@ class _SearchScreenState extends State<SearchScreen> {
                           text: "Search",
                           icon: Icons.search,
                           myController: searchController,
+                          onChanged: (String? value) {
+                            setState(() {
+                              search = value.toString();
+                            });
+                          },
                         ),
                         const SizedBox(
                           height: 13.0,
@@ -151,7 +147,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                     return Colors.green;
                                   }
                                   return Colors
-                                      .transparent; // Use the component's default.
+                                      .transparent;
                                 },
                               ),
                             ),
@@ -190,7 +186,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                     return Colors.green;
                                   }
                                   return Colors
-                                      .transparent; // Use the component's default.
+                                      .transparent;
                                 },
                               ),
                             ),
@@ -218,22 +214,55 @@ class _SearchScreenState extends State<SearchScreen> {
                                         child: ListView.builder(
                                           itemCount: _items.length,
                                           itemBuilder: (context, index) {
-                                            return Card(
-                                              margin: const EdgeInsets.all(10),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(30.0),
-                                              ),
-                                              color: buttonColor,
-                                              child: ListTile(
-                                                title: Text(
-                                                  "Nom: ${_items[index]["name"]}",
-                                                  style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w900),
+                                            late String position = _items[index]
+                                                    ['name']
+                                                .toString();
+                                            if (searchController.text.isEmpty) {
+                                              return Card(
+                                                margin:
+                                                    const EdgeInsets.all(10),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          30.0),
                                                 ),
-                                              ),
-                                            );
+                                                color: buttonColor,
+                                                child: ListTile(
+                                                  title: Text(
+                                                    "Nom: ${_items[index]["name"]}",
+                                                    style: const TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.w900),
+                                                  ),
+                                                ),
+                                              );
+                                            } else if (position
+                                                .toLowerCase()
+                                                .contains(searchController.text
+                                                    .toLowerCase())) {
+                                              return Card(
+                                                margin:
+                                                    const EdgeInsets.all(10),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          30.0),
+                                                ),
+                                                color: buttonColor,
+                                                child: ListTile(
+                                                  title: Text(
+                                                    "Nom: ${_items[index]["name"]}",
+                                                    style: const TextStyle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.w900),
+                                                  ),
+                                                ),
+                                              );
+                                            } else {
+                                              return Container();
+                                            }
                                           },
                                         ),
                                       )
@@ -252,60 +281,12 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
 
-      // body: Padding(
-      //   padding: const EdgeInsets.all(25),
-      //   child: Column(
-      //     children: [
-      //       // Display the data loaded from sample.json
-      //       _items.isNotEmpty
-      //           ? Expanded(
-      //               child: ListView.builder(
-      //                 itemCount: _items.length,
-      //                 itemBuilder: (context, index) {
-      //                   return Card(
-      //                     margin: const EdgeInsets.all(10),
-      //                     color: buttonColor,
-      //                     child: ListTile(
-      //                       title: Text(
-      //                         "Nom: ${_items[index]["name"]}",
-      //                         style: const TextStyle(
-      //                             color: Colors.black,
-      //                             fontWeight: FontWeight.bold),
-      //                       ),
-      //                     ),
-      //                   );
-      //                 },
-      //               ),
-      //             )
-      //           : Container()
-      //     ],
-      //   ),
-      // ),
-
+      // TODO Bottom Navigation Bar
       bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
               canvasColor: sideBarColor.withOpacity(0.7),
               textTheme: Theme.of(context).textTheme.copyWith(
                   caption: TextStyle(color: sideBarColor.withOpacity(0.7)))),
-          // child: BottomNavigationBar(
-          //     items: const <BottomNavigationBarItem>[
-          //       BottomNavigationBarItem(
-          //           icon: Icon(Icons.folder, color: Colors.white, size: 40,),
-          //         label: "Folder",
-          //       ),
-          //       BottomNavigationBarItem(
-          //           icon: Icon(Icons.settings, color: Colors.white, size: 40,),
-          //           label: "Setting",
-          //           // backgroundColor: Colors.yellow
-          //       ),
-          //     ],
-          //     type: BottomNavigationBarType.shifting,
-          //     currentIndex: _selectedIndex,
-          //     selectedItemColor: buttonColor,
-          //     iconSize: 40,
-          //     onTap: _onItemTapped,
-          //     elevation: 0
-          // ),
           child: Container(
             height: 60,
             color: sideBarColor.withOpacity(0.7),
