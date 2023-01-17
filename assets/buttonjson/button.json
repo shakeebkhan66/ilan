@@ -1,0 +1,144 @@
+{
+    "count": 3,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+
+            "pk": 1,
+            "name": "P1-Porte 01",
+            "device_name": "CTRL 01",
+            "area_name": null,
+            "access_profiles": [],
+            "free_access_schedule_name": "Jamais",
+            "free_access_schedule": 255,
+            "device_id": "9256",
+            "area_id": null,
+            "state_display": "Normalement ferm\u00e9e",
+            "granted_users_count": 0,
+            "actions": {
+                "lock-doors": {
+                    "url": "/api/doors/1/lock/",
+                    "method": "POST",
+                    "label": "Verrouiller",
+                    "type": "danger",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1",
+                    "disabled": true
+                },
+                "open-doors": {
+                    "url": "/api/doors/1/open/",
+                    "method": "POST",
+                    "label": "Ouvrir",
+                    "type": "success",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1",
+                    "disabled": true
+                },
+                "full-open-doors": {
+                    "url": "/api/doors/1/full-open/",
+                    "method": "POST",
+                    "label": "Lib\u00e9rer",
+                    "type": "primary",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1",
+                    "disabled": true
+                }
+            }
+        },
+        {
+    
+            "pk": 2,
+            "name": "P2-Porte 02",
+            "device_name": "CTRL 01",
+            "area_name": null,
+            "access_profiles": [],
+            "free_access_schedule_name": "Jamais",
+            "free_access_schedule": 255,
+            "device_id": "9256",
+            "area_id": null,
+            "state_display": "Normalement ferm\u00e9e",
+            "granted_users_count": 0,
+            "actions": {
+                "lock-doors": {
+                    "url": "/api/doors/2/lock/",
+                    "method": "POST",
+                    "label": "Verrouiller",
+                    "type": "danger",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1",
+                    "disabled": true
+                },
+                "open-doors": {
+                    "url": "/api/doors/2/open/",
+                    "method": "POST",
+                    "label": "Ouvrir",
+                    "type": "success",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1",
+                    "disabled": true
+                },
+                "full-open-doors": {
+                    "url": "/api/doors/2/full-open/",
+                    "method": "POST",
+                    "label": "Lib\u00e9rer",
+                    "type": "primary",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1",
+                    "disabled": true
+                }
+            }
+        },
+        {
+            
+            "pk": 6,
+            "name": "P1",
+            "device_name": "CTRL 02",
+            "area_name": "Z1-2Portes",
+            "access_profiles": [
+                {
+                    "url": "https://ixoff.fr:43166/api/access_profiles/33/",
+                    "pk": 33,
+                    "name": "P1-Acc\u00e8s 24/7"
+                },
+                {
+                    "url": "https://ixoff.fr:43166/api/access_profiles/1/",
+                    "pk": 1,
+                    "name": "Tous acc\u00e8s 24/7"
+                }
+            ],
+            "free_access_schedule_name": "Jamais",
+            "free_access_schedule": 255,
+            "device_id": "9257",
+            "area_id": 5,
+            "state_display": "Normalement ferm\u00e9e",
+            "granted_users_count": 0,
+            "actions": {
+                "lock-doors": {
+                    "url": "/api/doors/6/lock/",
+                    "method": "POST",
+                    "label": "Verrouiller",
+                    "type": "danger",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1"
+                },
+                "open-doors": {
+                    "url": "/api/doors/6/open/",
+                    "method": "POST",
+                    "label": "Ouvrir",
+                    "type": "success",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1"
+                },
+                "full-open-doors": {
+                    "url": "/api/doors/6/full-open/",
+                    "method": "POST",
+                    "label": "Lib\u00e9rer",
+                    "type": "primary",
+                    "button_type": "btn-outline",
+                    "button_classes": "btn-door-action mr-1"
+                }
+            }
+        }
+    ]
+}
