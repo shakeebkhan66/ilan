@@ -353,6 +353,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   height: 60,
                   color: sideBarColor.withOpacity(0.7),
                   child: Row(
+                    // crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       const SizedBox(
                         width: 190,
