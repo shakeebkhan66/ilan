@@ -1,21 +1,29 @@
-import 'package:collapsible_sidebar/collapsible_sidebar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ilan/screens/starting_screen.dart';
-import 'package:ilan/screens/login_screen.dart';
 
-void main() => runApp(MyApp());
+
+void main() {
+
+  runApp(
+      MyApp()
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Collapse Sidebar',
-      home: Scaffold(
-        body: StartingPage(),
-      ),
+        theme: Theme.of(context).copyWith(
+      appBarTheme: Theme.of(context)
+          .appBarTheme
+          .copyWith(systemOverlayStyle: SystemUiOverlayStyle.dark),
+        ),
+      home: const StartingPage(),
     );
   }
 }

@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      extendBodyBehindAppBar: true,
       body: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: [

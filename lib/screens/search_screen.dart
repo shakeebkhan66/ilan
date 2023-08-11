@@ -1,13 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ilan/constants/customtextformfield.dart';
-import 'package:ilan/model/buttonmodel_class.dart';
 import 'package:ilan/screens/setting_screen.dart';
-
 import '../constants/colors.dart';
-import '../model/ButtonModel.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -45,6 +41,7 @@ class _SearchScreenState extends State<SearchScreen> {
     print(screenHeight);
     return Scaffold(
       backgroundColor: backgroundColor,
+      extendBodyBehindAppBar: true,
       body: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: [
@@ -118,86 +115,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         color: sideBarColor.withOpacity(0.4),
                         thickness: 0.5,
                       ),
-
-
-                      // const SizedBox(
-                      //   height: 15.0,
-                      // ),
-                      // Padding(
-                      //   padding:
-                      //       const EdgeInsets.only(right: 18.0, left: 10.0),
-                      //   child: OutlinedButton(
-                      //     onPressed: () {},
-                      //     style: ButtonStyle(
-                      //       shape: MaterialStateProperty.all(
-                      //         RoundedRectangleBorder(
-                      //           borderRadius: BorderRadius.circular(14.0),
-                      //           side: const BorderSide(
-                      //               width: 10.0, color: Colors.black),
-                      //         ),
-                      //       ),
-                      //       fixedSize: MaterialStateProperty.resolveWith(
-                      //         (states) => const Size(270.0, 40.0),
-                      //       ),
-                      //       backgroundColor:
-                      //           MaterialStateProperty.resolveWith<Color>(
-                      //         (Set<MaterialState> states) {
-                      //           if (states.contains(MaterialState.pressed)) {
-                      //             return Colors.green;
-                      //           }
-                      //           return Colors
-                      //               .transparent;
-                      //         },
-                      //       ),
-                      //     ),
-                      //     child: const Text(
-                      //       "OPEN DOOR EA1",
-                      //       style: TextStyle(
-                      //         color: Colors.black,
-                      //         fontSize: 17.0,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      // const SizedBox(
-                      //   height: 15.0,
-                      // ),
-                      // Padding(
-                      //   padding:
-                      //       const EdgeInsets.only(right: 18.0, left: 10.0),
-                      //   child: OutlinedButton(
-                      //     onPressed: () {},
-                      //     style: ButtonStyle(
-                      //       shape: MaterialStateProperty.all(
-                      //         RoundedRectangleBorder(
-                      //           borderRadius: BorderRadius.circular(14.0),
-                      //           side: const BorderSide(
-                      //               width: 10.0, color: Colors.black),
-                      //         ),
-                      //       ),
-                      //       fixedSize: MaterialStateProperty.resolveWith(
-                      //         (states) => const Size(270.0, 40.0),
-                      //       ),
-                      //       backgroundColor:
-                      //           MaterialStateProperty.resolveWith<Color>(
-                      //         (Set<MaterialState> states) {
-                      //           if (states.contains(MaterialState.pressed)) {
-                      //             return Colors.green;
-                      //           }
-                      //           return Colors
-                      //               .transparent;
-                      //         },
-                      //       ),
-                      //     ),
-                      //     child: const Text(
-                      //       "OPEN DOOR EA2",
-                      //       style: TextStyle(
-                      //         color: Colors.black,
-                      //         fontSize: 17.0,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                       const SizedBox(
                         height: 15.0,
                       ),
@@ -228,11 +145,16 @@ class _SearchScreenState extends State<SearchScreen> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               14.0),
-                                                      side: const BorderSide(
-                                                          width: 10.0,
-                                                          color: Colors.black),
                                                     ),
                                                   ),
+                                                  side:
+                                                      MaterialStateProperty.all(
+                                                          const BorderSide(
+                                                              color:
+                                                                  buttonColor,
+                                                              width: 1.0,
+                                                              style: BorderStyle
+                                                                  .solid)),
                                                   fixedSize:
                                                       MaterialStateProperty
                                                           .resolveWith(
@@ -278,11 +200,16 @@ class _SearchScreenState extends State<SearchScreen> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               14.0),
-                                                      side: const BorderSide(
-                                                          width: 10.0,
-                                                          color: Colors.black),
                                                     ),
                                                   ),
+                                                  side:
+                                                      MaterialStateProperty.all(
+                                                          const BorderSide(
+                                                              color:
+                                                                  buttonColor,
+                                                              width: 1.0,
+                                                              style: BorderStyle
+                                                                  .solid)),
                                                   fixedSize:
                                                       MaterialStateProperty
                                                           .resolveWith(
@@ -323,15 +250,12 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                         ),
                       ),
-
-
                     ],
                   ),
                 ),
               ),
             ],
           ),
-
         ],
       ),
 
@@ -371,7 +295,8 @@ class _SearchScreenState extends State<SearchScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const SettingScreen()));
+                                    builder: (context) =>
+                                        const SettingScreen()));
                           },
                           child: Image.asset(
                             "assets/images/setting.png",
@@ -382,8 +307,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               )
             ],
-          )
-      ),
+          )),
     );
   }
 }

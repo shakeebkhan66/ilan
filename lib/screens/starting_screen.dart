@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ilan/screens/login_page.dart';
 
 import '../constants/colors.dart';
@@ -12,10 +15,26 @@ class StartingPage extends StatefulWidget {
 }
 
 class _StartingPageState extends State<StartingPage> {
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   log('Entering full screen mode...');
+  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
+  // }
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ),
+      child: Scaffold(
       backgroundColor: backgroundColor,
+      extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: true,
+      extendBody: true,
       body: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: [
@@ -48,6 +67,7 @@ class _StartingPageState extends State<StartingPage> {
           )
         ],
       ),
+    ),
     );
   }
 }
